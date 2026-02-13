@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<square:Architecture
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:square="http://square/1.0"
+    xsi:schemaLocation="http://square/1.0 ../Metamodel/Square.ecore"
+    name="SquareM">
+  <squares name="BlueS"
+      color="Blue"
+      length="8"/>
+  <squares name="GreenS"
+      color="Green"
+      length="4"/>
+  <relations
+      name="R1"
+      source="//@squares.1"
+      target="//@squares.0"/>
+</square:Architecture>
