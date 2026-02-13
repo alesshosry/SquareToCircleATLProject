@@ -1,0 +1,40 @@
+-- @path Transformation/Square2Circle.atl
+-- Module for transforming Square models to Circle models
+module Square2Circle;
+create OUT : Circle from IN : Square;
+
+-- Rule to transform Architecture
+rule Architecture2Architecture {
+    from
+        s : Square!Architecture
+    to
+        t : Circle!Architecture (
+            name <- s.name,
+            circles <- s.squares,
+            relations <- s.relations
+        )
+}
+
+-- Rule to transform Square to Circle
+rule Square2Circle {
+    from
+        s : Square!Square
+    to
+        c : Circle!Circle (
+            name <- s.name,
+            color <- s.color,
+            rayon <- s.length
+        )
+}
+
+-- Rule to transform Relation
+rule Relation2Relation {
+    from
+        s : Square!Relation
+    to
+        t : Circle!Relation (
+            name <- s.name,
+            source <- s.source, -- will be resolved to Circle by ATL
+            target <- s.target  -- will be resolved to Circle by ATL
+        )
+}
